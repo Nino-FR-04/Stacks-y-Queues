@@ -10,7 +10,7 @@ import Trabajos_Individuales.FloresNino.Excepciones.ExceptionIsEmpty;
 public interface QueueTAD <E> {
     public void enqueue(E obj);
     public E dequeue() throws ExceptionIsEmpty;
-    public void destroyQueue() throws ExceptionIsEmpty;
+    public void destroyQueue();
     public boolean isEmpty();
     public E front() throws ExceptionIsEmpty;
     public E back() throws ExceptionIsEmpty;

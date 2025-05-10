@@ -22,7 +22,12 @@ public class QueueLink <E> implements QueueTAD <E> {
 
     //-----------Implementacion de los metodos de la Interfaz
 
-
+    /**
+     * Agrega un elemento al final de la cola.
+     * Si la cola está vacía, el primer y el último nodo serán el mismo.
+     * 
+     * @param obj el dato a agregar a la cola.
+     */
     @Override
     public void enqueue(E obj) {
 
@@ -35,9 +40,15 @@ public class QueueLink <E> implements QueueTAD <E> {
             this.last.setNext(nodeAux);
             this.last = nodeAux;
         }
-
     }
     
+    /**
+     * Elimina y retorna el primer elemento de la cola.
+     * Si la cola está vacía, se lanza una excepción.
+     * 
+     * @return el primer elemento de la cola.
+     * @throws ExceptionIsEmpty si la cola está vacía.
+     */
     @Override
     public E dequeue() throws ExceptionIsEmpty {
         if(this.isEmpty())
@@ -53,17 +64,35 @@ public class QueueLink <E> implements QueueTAD <E> {
         return data;
     }
 
+    /**
+     * Vacía la cola, eliminando todos sus elementos.
+     * Después de este método, tanto first como last serán null.
+     * 
+     */
     @Override
-    public void destroyQueue() throws ExceptionIsEmpty {
+    public void destroyQueue() {
         this.first = null;
         this.last = null;
     }
 
+    /**
+     * Verifica si la cola está vacía.
+     * La cola está vacía si el puntero first es null.
+     * 
+     * @return true si la cola está vacía, false en caso contrario.
+     */
     @Override
     public boolean isEmpty() {
         return this.first == null;
     }
 
+    /**
+     * Retorna el primer elemento de la cola sin eliminarlo.
+     * Si la cola está vacía, se lanza una excepción.
+     * 
+     * @return el primer elemento de la cola.
+     * @throws ExceptionIsEmpty si la cola está vacía.
+     */
     @Override
     public E front() throws ExceptionIsEmpty {
         if(this.isEmpty())
@@ -72,6 +101,13 @@ public class QueueLink <E> implements QueueTAD <E> {
         return this.first.getData();
     }
 
+    /**
+     * Retorna el último elemento de la cola sin eliminarlo.
+     * Si la cola está vacía, se lanza una excepción.
+     * 
+     * @return el último elemento de la cola.
+     * @throws ExceptionIsEmpty si la cola está vacía.
+     */
     @Override
     public E back() throws ExceptionIsEmpty {
         if(this.isEmpty())
