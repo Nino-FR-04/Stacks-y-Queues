@@ -2,6 +2,12 @@ package Trabajos_Individuales.FloresNino.Stacks;
 import Trabajos_Individuales.FloresNino.Excepciones.ExceptionIsEmpty;
 import Trabajos_Individuales.FloresNino.Nodes.Node;
 
+/**
+ * Implementación de una pila (Stack) usando una estructura de lista enlazada.
+ * Los elementos se apilan/desapilan desde el tope.
+ *
+ * @param E Tipo de elementos almacenados en la pila.
+ */
 public class StackLink <E> implements StackTAD <E> {
 
     //Atributos
@@ -13,18 +19,26 @@ public class StackLink <E> implements StackTAD <E> {
     }
 
     //---------Implementacion de metodos de la interfaz
-
-
-
+    /**
+     * Inserta un elemento en el tope de la pila.
+     * 
+     * @param obj Elemento a insertar.
+     */
     @Override
     public void push(E obj) {
         
         Node<E> nodo = new Node<>(obj);
         nodo.setNext(this.tope);
         this.tope = nodo;
-        
+
     }
 
+    /**
+     * Elimina y retorna el elemento en el tope de la pila.
+     * 
+     * @return Elemento en el tope.
+     * @throws ExceptionIsEmpty Si la pila está vacía.
+     */
     @Override
     public E pop() throws ExceptionIsEmpty {
         
@@ -37,6 +51,12 @@ public class StackLink <E> implements StackTAD <E> {
 
     }
 
+    /**
+     * Retorna el elemento en el tope sin eliminarlo.
+     * 
+     * @return Elemento en el tope.
+     * @throws ExceptionIsEmpty Si la pila está vacía.
+     */
     @Override
     public E top() throws ExceptionIsEmpty {
         
@@ -46,16 +66,30 @@ public class StackLink <E> implements StackTAD <E> {
         return this.tope.getData();
     }
 
+    /**
+     * Elimina todos los elementos de la pila.
+     */
     @Override
     public void destroyStack() throws ExceptionIsEmpty {
         this.tope = null;
     }
 
+    /**
+     * Verifica si la pila está vacía.
+     * 
+     * @return true si está vacía, false en caso contrario.
+     */
     @Override
     public boolean isEmpty() {
         return this.tope == null;
     }
     
+    /**
+     * Devuelve una representación en texto de los elementos de la pila.
+     * El primer elemento mostrado es el tope.
+     * 
+     * @return Cadena con los elementos de la pila.
+     */
     @Override
     public String toString() {
         if (this.isEmpty()) {
