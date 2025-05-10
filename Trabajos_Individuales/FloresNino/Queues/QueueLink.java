@@ -115,5 +115,26 @@ public class QueueLink <E> implements QueueTAD <E> {
         
         return this.last.getData();
     }
+
+
+    //Representacion de la cola en forma de cadena de texto
+    @Override
+    public String toString() {
+        if (this.isEmpty()) {
+            return "[]";
+        }
+        
+        StringBuilder sb = new StringBuilder("[");
+
+        Node<E> actual = this.first;
+
+        while (actual != this.last) {
+            sb.append(actual.getData() + ", ");
+            actual = actual.getNext();
+        }
+
+        sb.append(actual.getData() + "]");
+        return sb.toString();
+    }
     
 }
