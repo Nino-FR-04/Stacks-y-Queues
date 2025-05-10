@@ -4,6 +4,14 @@ import Trabajos_Individuales.FloresNino.Excepciones.ExceptionIsEmpty;
 import Trabajos_Individuales.FloresNino.Nodes.EntryNode;
 import Trabajos_Individuales.FloresNino.Nodes.Node;
 
+/**
+ * Implementación de una cola de prioridad usando una lista enlazada ordenada.
+ * Los elementos se insertan de acuerdo con su prioridad, manteniendo el orden FIFO para elementos con igual prioridad.
+ *
+ * @param E Tipo de dato almacenado.
+ * @param P Tipo de prioridad, que debe ser comparable.
+ */
+
 public class PriorityQueueLinkSort <E,P extends Comparable<P>> 
     implements PriorityQueueTAD <E,P> {
 
@@ -18,7 +26,12 @@ public class PriorityQueueLinkSort <E,P extends Comparable<P>>
     }
 
     //------------Implementación de los metodos de la interfaz
-
+    /**
+     * Inserta un elemento en la cola de prioridad según su prioridad.
+     * 
+     * @param obj Elemento a insertar.
+     * @param pri Prioridad asociada al elemento.
+     */
     @Override
     public void enqueue(E obj, P pri) {
         
@@ -68,6 +81,12 @@ public class PriorityQueueLinkSort <E,P extends Comparable<P>>
 
     }
 
+    /**
+     * Elimina y devuelve el elemento con mayor prioridad (al frente de la cola).
+     * 
+     * @return Elemento al frente de la cola.
+     * @throws ExceptionIsEmpty Si la cola está vacía.
+     */
     @Override
     public E dequeue() throws ExceptionIsEmpty {
 
@@ -84,17 +103,31 @@ public class PriorityQueueLinkSort <E,P extends Comparable<P>>
         return data;
     }
 
+    /**
+     * Elimina todos los elementos de la cola.
+     */
     @Override
     public void destroyQueue() {
         this.first = null;
         this.last = null;
     }
 
+    /**
+     * Verifica si la cola está vacía.
+     * 
+     * @return true si la cola no contiene elementos, false en caso contrario.
+     */
     @Override
     public boolean isEmpty() {
         return this.first == null;
     }
 
+    /**
+     * Devuelve el elemento al frente de la cola sin eliminarlo.
+     * 
+     * @return Elemento al frente.
+     * @throws ExceptionIsEmpty Si la cola está vacía.
+     */
     @Override
     public E front() throws ExceptionIsEmpty {
         if(this.isEmpty())
@@ -103,6 +136,12 @@ public class PriorityQueueLinkSort <E,P extends Comparable<P>>
         return this.first.getData().getData();
     }
 
+    /**
+     * Devuelve el último elemento en la cola sin eliminarlo.
+     * 
+     * @return Último elemento en la cola.
+     * @throws ExceptionIsEmpty Si la cola está vacía.
+     */
     @Override
     public E back() throws ExceptionIsEmpty {
         if(this.isEmpty())
