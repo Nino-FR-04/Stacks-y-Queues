@@ -12,7 +12,6 @@ public class Node <E> {
     public Node<E> getNext() {return this.next;}
     
     //Setters
-    public void setData(E data) {this.data = data;}
     public void setNext(Node<E> next) {this.next = next;}
 
     /**
