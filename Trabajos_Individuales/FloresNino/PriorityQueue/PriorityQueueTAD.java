@@ -8,7 +8,7 @@ import Trabajos_Individuales.FloresNino.Excepciones.ExceptionIsEmpty;
  * @param P el tipo de prioridad
  */
 
-public interface PriorityQueueTAD <E,P extends Comparable<P>> {
+public interface PriorityQueueTAD <E,P> {
     public void enqueue(E obj, P pri);
     public E dequeue() throws ExceptionIsEmpty;
     public void destroyQueue();
