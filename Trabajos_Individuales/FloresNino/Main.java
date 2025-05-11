@@ -1,6 +1,5 @@
 package Trabajos_Individuales.FloresNino;
 
-import Trabajos_Individuales.FloresNino.Excepciones.ExceptionIsEmpty;
 import Trabajos_Individuales.FloresNino.PriorityQueue.PriorityQueueLinkSort;
 import Trabajos_Individuales.FloresNino.PriorityQueue.PriorityQueueLinked;
 import Trabajos_Individuales.FloresNino.Queues.QueueArray;
@@ -148,5 +147,24 @@ public class Main {
         pql.destroyQueue();
         System.out.println("Queue de prioridad después de destruirla: " + pql);
 
+
+        //------------------------Ejercicio 4
+        System.out.println("Ejercicio 4: Verificación de balanceo de símbolos");
+
+        // Casos de prueba
+        String test1 = "({[]})";    // Balancedo
+        String test2 = "({[})";     // No balancedo
+        String test3 = "{[()]}";    // Balancedo
+        String test4 = "{[(])}";    // No balancedo
+        String test5 = "((()))";    // Balancedo
+        String test6 = "{[}";       // No balancedo
+
+        // Verificando los resultados
+        System.out.println("Test 1: " + test1 + " -> " + Ejercicios.symbolBalancing(test1));
+        System.out.println("Test 2: " + test2 + " -> " + Ejercicios.symbolBalancing(test2));
+        System.out.println("Test 3: " + test3 + " -> " + Ejercicios.symbolBalancing(test3));
+        System.out.println("Test 4: " + test4 + " -> " + Ejercicios.symbolBalancing(test4));
+        System.out.println("Test 5: " + test5 + " -> " + Ejercicios.symbolBalancing(test5));
+        System.out.println("Test 6: " + test6 + " -> " + Ejercicios.symbolBalancing(test6));
     }
 }
