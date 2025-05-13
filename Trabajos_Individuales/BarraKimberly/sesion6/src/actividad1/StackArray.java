@@ -8,19 +8,19 @@ public class StackArray<E> implements Stack<E> {
 		this.array = (E[]) new Object[n];
 		tope = -1;
 	}
-	public void push(E x) { //agregar un eleemento al tope de la pila
+	public void push(E x) { 
 		if(isFull()) {
 			throw new RuntimeException("pila llena");
 		}
 		array[++tope] =x;
 	}
-	public E pop() throws ExceptionIsEmpty{//saca el ultimo elemento insertado
+	public E pop() throws ExceptionIsEmpty{
 		if(isEmpty()) {
 			throw new ExceptionIsEmpty("la pila esta vacia");
 		}
 		return array[tope--];
 	}
-	public E top() throws ExceptionIsEmpty{//muestra el elemento en el tope sin eliminarlo
+	public E top() throws ExceptionIsEmpty{
 		if(isEmpty()) {
 			throw new ExceptionIsEmpty("la pila esta vacia");
 		}
